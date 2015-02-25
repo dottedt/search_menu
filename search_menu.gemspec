@@ -6,15 +6,15 @@ require 'search_menu/version'
 Gem::Specification.new do |spec|
   spec.name          = "search_menu"
   spec.version       = SearchMenu::VERSION
-  spec.authors       = ["Scott"]
+  spec.authors       = ["Scott C. Hughes"]
   spec.email         = ["scott@dottedt.com"]
 
   if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
+    #spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
   end
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = %q{Finds combinations of dishes by fixed price.}
+  spec.description   = %q{Finds any combination of dishes that add up exactly to the target price.}
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 

@@ -2,12 +2,43 @@ require "search_menu/version"
 require "data_cleaner"
 
 class SearchMenu
-  attr_accessor :file, :price_goal, :menu_items, :combinations
 
- def initialize(input = nil)
-    @price_goal = 0
+  attr_accessor :file_name, :price_goal, :menu_items, :winning_combo
+
+  def initialize(input = nil)
+    @price_goal = ""
     @menu_items = []
     @file = ""
-    self.get_data(input) if input
+    @winning_combo = []
+    get_data(input) if input
   end
+
+  def get_data(input)
+    data = File.read(input).scan(/[,$]+(\d+\.\d+)|(.*\b)[,$]+(\d+\.\d+)/).each{ |scn| scn.compact! }
+    @file = input
+    @price_goal = data[0]
+    @menu_items = menu_to_hash(data[2, data.size])
+    find_target_price
+  end
+
+  def price_goal_to_number(price_goal)
+    price_goal.flatten.collect { |i| i.to_f }
+  end
+  def menu_to_hash(menu_prices)
+    menu_prices.map { |menu_item, item_cost| {:menu_item=> menu_item, :item_cost => item_cost} }
+  end
+
+  def find_target_price
+    @winning_combo = []
+    1.upto(@menu_items.length).each do | initial |
+      @menu_items.combination(initial).to_a.each do |combo|
+        @winning_combo << combo if combo.map{|x| x[:item_cost].to_f}.inject(:+) == @price_goal[0].to_f
+        p(combo.map{|x| x[:item_cost].to_f}.inject(:+) == @price_goal[0].to_f)
+        p(@price_goal[0].to_f)
+        combo.each do |groups|
+        end
+      end
+    end
+  end
+
 end

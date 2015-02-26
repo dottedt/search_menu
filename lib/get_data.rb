@@ -1,4 +1,4 @@
-class GetData
+class get_data
   def data_type(input)
     menu_type = input
     case

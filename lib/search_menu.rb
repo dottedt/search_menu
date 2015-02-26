@@ -21,9 +21,9 @@ class SearchMenu
     find_target_price
   end
 
-  def price_goal_to_number(price_goal)
-    price_goal.flatten.collect { |i| i.to_f }
-  end
+  # def price_goal_to_number(price_goal)
+  #   price_goal.flatten.collect { |i| i.to_f }
+  # end
   def menu_to_hash(menu_prices)
     menu_prices.map { |menu_item, item_cost| {:menu_item=> menu_item, :item_cost => item_cost} }
   end

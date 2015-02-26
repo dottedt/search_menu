@@ -6,9 +6,9 @@ class SearchMenu
   attr_accessor :file_name, :price_goal, :menu_items, :winning_combo
 
   def initialize(input = nil)
+    @file = ""
     @price_goal = ""
     @menu_items = []
-    @file = ""
     @winning_combo = []
     get_data(input) if input
   end

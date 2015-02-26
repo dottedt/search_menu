@@ -9,10 +9,10 @@ class SearchMenu
     @file_name = ""
     @price_goal = ""
     @menu_items = []
-    get_data(input) if input
+    get_file_or_data(input) if input
   end
 
-  def get_data(input)
+  def get_file_or_data(input)
     data = File.read(input).scan(/[,$]+(\d+\.\d+)|(.*\b)[,$]+(\d+\.\d+)/).each{ |scn| scn.compact! }
     @file_name = input
     @price_goal = data[0]

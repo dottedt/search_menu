@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+lib = File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require "search_menu"
+require 'optparse'
+
+options = {}
+
+optparse = OptionParser.new do |opts|
+  opts.banner = "Usage: search_menu.rb [options] file1 file2 etc.."
+end
+optparse.parse!
+
+if ARGV.empty?
+  puts optparse
+  exit(-1)
+end
+
+ARGV.each do|f|
+
+  menu = SearchMenu.new
+  menu.get_file_or_data(f)
+end

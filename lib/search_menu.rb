@@ -39,8 +39,10 @@ class SearchMenu
   end
 
   def eat_or_starve
-    puts("#{@file_name} Results\n\n")
+    decision = ""
+    decision << "#{@file} Results"
     @winning_combo ? p(@winning_combo) : (puts "Sorry, there are no combination of dishes that will be equal in cost to your target price")
+    decision
   end
 
 end

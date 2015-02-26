@@ -35,10 +35,6 @@ class SearchMenu
       }
   end
 
-  def eat_or_live
-
-  end
-
   def eat_or_starve
 
   end

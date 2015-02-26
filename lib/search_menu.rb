@@ -30,13 +30,14 @@ class SearchMenu
 
   def find_target_price
     @winning_combo = []
-    1.upto(@menu_items.length).each do | initial |
-      @menu_items.combination(initial).to_a.each do |combo|
-        @winning_combo << combo if combo.map{|x| x[:item_cost].to_f}.inject(:+) == @price_goal[0].to_f
-        p(combo.map{|x| x[:item_cost].to_f}.inject(:+) == @price_goal[0].to_f)
-        end
-      end
-    end
+    1.upto(@menu_items.length).each{ | i | @menu_items.combination(i).to_a.each { |j|
+        @winning_combo << j if j.map{|x| x[:item_cost].to_f}.inject(:+) == @price_goal[0].to_f
+        }
+      }
+  end
+
+  def eat_or_live
+
   end
 
   def eat_or_starve

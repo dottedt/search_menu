@@ -27,7 +27,7 @@ class SearchMenu
     menu_prices.map { |menu_item, item_cost| {:menu_item=> menu_item, :item_cost => item_cost} }
   end
 
-  def find_target_price(*array)
+  def find_target_price
     # look into why this is needed
     @winning_combo = []
     1.upto(@menu_items.length).each{ |i| @menu_items.combination(i).each { |j|

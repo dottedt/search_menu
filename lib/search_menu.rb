@@ -33,10 +33,12 @@ class SearchMenu
         @winning_combo << j if j.map{|x| x[:item_cost].to_f}.inject(:+) == @price_goal[0].to_f
         }
       }
+    eat_or_starve
   end
 
   def eat_or_starve
-
+    puts("#{@file_name} Results\n\n")
+    @winning_combo ? p(@winning_combo) : (puts "Sorry, there are no combination of dishes that will be equal in cost to your target price")
   end
 
 end

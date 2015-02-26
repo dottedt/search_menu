@@ -3,13 +3,12 @@ require "data_cleaner"
 
 class SearchMenu
 
-  attr_accessor :file_name, :price_goal, :menu_items, :winning_combo
+  attr_accessor :file_name, :price_goal, :menu_items
 
   def initialize(input = nil)
     @file_name = ""
     @price_goal = ""
     @menu_items = []
-    @winning_combo = []
     get_data(input) if input
   end
 
@@ -28,7 +27,7 @@ class SearchMenu
     menu_prices.map { |menu_item, item_cost| {:menu_item=> menu_item, :item_cost => item_cost} }
   end
 
-  def find_target_price
+  def find_target_price(*array)
     # look into why this is needed
     @winning_combo = []
     1.upto(@menu_items.length).each{ |i| @menu_items.combination(i).each { |j|

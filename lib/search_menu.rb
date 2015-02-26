@@ -41,7 +41,7 @@ class SearchMenu
   def eat_or_starve
     decision = ""
     decision << "#{@file_name} Results"
-    @winning_combo ? (decision << "#{@winning_combo}") : (decision << "Sorry, there are no combination of dishes that will be equal in cost to your target price")
+    @winning_combo.nil? ? (decision << "#{@winning_combo}") : (decision << "Sorry, there are no combination of dishes that will be equal in cost to your target price")
     decision
   end
 

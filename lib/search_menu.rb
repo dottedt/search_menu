@@ -20,7 +20,7 @@ class SearchMenu
     @menu_items = menu_to_hash(data[2, data.size])
     find_target_price
   end
-
+  # superfluous for now.  perhaps a refactor
   # def price_goal_to_number(price_goal)
   #   price_goal.flatten.collect { |i| i.to_f }
   # end

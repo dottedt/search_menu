@@ -29,6 +29,7 @@ class SearchMenu
   end
 
   def find_target_price
+    # look into why this is needed
     @winning_combo = []
     1.upto(@menu_items.length).each{ |i| @menu_items.combination(i).to_a.each { |j|
         @winning_combo << j if j.map{|x| x[:item_cost].to_f}.inject(:+) == @price_goal[0].to_f

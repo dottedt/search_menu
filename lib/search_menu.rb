@@ -31,17 +31,16 @@ class SearchMenu
   def find_target_price
     # look into why this is needed
     @winning_combo = []
-    1.upto(@menu_items.length).each{ |i| @menu_items.combination(i).to_a.each { |j|
-        @winning_combo << j if j.map{|x| x[:item_cost].to_f}.inject(:+) == @price_goal[0].to_f
-        }
-      }
+    1.upto(@menu_items.length).each{ |i| @menu_items.combination(i).each { |j|
+        @winning_combo << j if j.map{|x| x[:item_cost].to_f}.inject(:+) == @price_goal[0].to_f}}
     eat_or_starve
   end
 
   def eat_or_starve
-    decision = ""
-    decision << "#{@file_name} Results"
-    @winning_combo.nil? ? (decision << "#{@winning_combo}") : (decision << "Sorry, there are no combination of dishes that will be equal in cost to your target price")
+    decision = []
+    decision << [:file_name=>"#{@file_name}"]
+    @winning_combo.empty? ? decision << [{:sorry=>"Sorry, there are no combination of dishes that will be equal in cost to your target price"}] : decision << @winning_combo
+    decision.flatten!
     decision
   end
 

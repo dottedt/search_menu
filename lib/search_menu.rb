@@ -6,7 +6,7 @@ class SearchMenu
   attr_accessor :file_name, :price_goal, :menu_items, :winning_combo
 
   def initialize(input = nil)
-    @file = ""
+    @file_name = ""
     @price_goal = ""
     @menu_items = []
     @winning_combo = []

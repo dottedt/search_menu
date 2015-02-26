@@ -15,7 +15,7 @@ class SearchMenu
 
   def get_data(input)
     data = File.read(input).scan(/[,$]+(\d+\.\d+)|(.*\b)[,$]+(\d+\.\d+)/).each{ |scn| scn.compact! }
-    @file = input
+    @file_name = input
     @price_goal = data[0]
     @menu_items = menu_to_hash(data[2, data.size])
     find_target_price
@@ -40,8 +40,8 @@ class SearchMenu
 
   def eat_or_starve
     decision = ""
-    decision << "#{@file} Results\n"
-    @winning_combo ? decision << "#{@winning_combo}" : (puts "Sorry, there are no combination of dishes that will be equal in cost to your target price")
+    decision << "#{@file_name} Results"
+    @winning_combo ? (decision << "#{@winning_combo}") : (decision << "Sorry, there are no combination of dishes that will be equal in cost to your target price")
     decision
   end
 

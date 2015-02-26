@@ -34,11 +34,13 @@ class SearchMenu
       @menu_items.combination(initial).to_a.each do |combo|
         @winning_combo << combo if combo.map{|x| x[:item_cost].to_f}.inject(:+) == @price_goal[0].to_f
         p(combo.map{|x| x[:item_cost].to_f}.inject(:+) == @price_goal[0].to_f)
-        p(@price_goal[0].to_f)
-        combo.each do |groups|
         end
       end
     end
+  end
+
+  def eat_or_starve
+
   end
 
 end

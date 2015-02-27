@@ -6,14 +6,14 @@ require 'search_menu/version'
 Gem::Specification.new do |spec|
   spec.name          = "search_menu"
   spec.version       = SearchMenu::VERSION
-  spec.authors       = ["Scott C. Hughes"]
+  spec.authors       = ["Scott"]
   spec.email         = ["scott@dottedt.com"]
 
   if spec.respond_to?(:metadata)
-    #spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
+    spec.metadata['allowed_push_host'] = "https://rubygems.org"
   end
 
-  spec.summary       = %q{Finds combinations of dishes by fixed price.}
+ spec.summary       = %q{Finds combinations of dishes by fixed price.}
   spec.description   = %q{Finds any combination of dishes that add up exactly to the target price.}
   spec.homepage      = "https://github.com/dottedt/search_menu.git"
   spec.license       = "MIT"
@@ -25,5 +25,4 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.8"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec", "~> 3.2.0"
 end

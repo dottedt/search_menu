@@ -1,8 +1,8 @@
 # SearchMenu
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/search_menu`. To experiment with that code, run `bin/console` for an interactive prompt.
+Searches a menu and finds any items that will add up to a specific price.
 
-TODO: Delete this and the text above, and describe your gem
+
 
 ## Installation
 
@@ -22,7 +22,31 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+There are several ways of using SearchMenu.  The first way is to go through 
+the `SearchMenu` class itself.
+    
+    require 'SearchMenu'
+    
+    search = SearchMenu.new
+    search.get_file_or_data(file_name)
+
+The second way is to modify the String or Array classes by including either
+core extension.
+
+    require 'dogeify/core_ext/array'   # extends only Array
+    require 'dogeify/core_ext/string'  # extends only String
+    require 'dogeify/core_ext'         # extends both Array/String
+    
+    [["$10.00"], ["mixed fruit", "$2.15"], ["french fries", "$2.75"], ["side salad", "$3.35"], ["hot wings",
+    "$3.55"], ["mozzarella sticks", "$4.20"], ["sampler plate", "$5.80"]].search_menu
+    
+    {"$10.00"=>nil, "mixed fruit"=>"$2.15", "french fries"=>"$2.75", "side salad"=>"$3.35", "hot wings"=>"$3.55",
+    "mozzarella sticks"=>"$4.20", "sampler plate"=>"$5.80"}.search_menu
+    
+Lastly, the `SearchMenu` class along with all core extensions can be loaded via
+a single require.
+
+     require 'search_menu/all'
 
 ## Development
 

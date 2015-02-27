@@ -33,9 +33,9 @@ the `SearchMenu` class itself.
 The second way is to modify the String or Array classes by including either
 core extension.
 
-    require 'dogeify/core_ext/array'   # extends only Array
-    require 'dogeify/core_ext/string'  # extends only String
-    require 'dogeify/core_ext'         # extends both Array/String
+    require 'search_menu/core_ext/array'   # extends only Array
+    require 'search_menu/core_ext/string'  # extends only String
+    require 'search_menu/core_ext'         # extends both Array/String
     
     [["$10.00"], ["mixed fruit", "$2.15"], ["french fries", "$2.75"], ["side salad", "$3.35"], ["hot wings",
     "$3.55"], ["mozzarella sticks", "$4.20"], ["sampler plate", "$5.80"]].search_menu

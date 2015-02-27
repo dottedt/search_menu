@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Finds combinations of dishes by fixed price.}
   spec.description   = %q{Finds any combination of dishes that add up exactly to the target price.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/dottedt/search_menu.git"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

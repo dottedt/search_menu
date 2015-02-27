@@ -19,7 +19,6 @@ if ARGV.empty?
 end
 
 ARGV.each do|f|
-
   menu = SearchMenu.new
   menu.get_file_or_data(f)
 end

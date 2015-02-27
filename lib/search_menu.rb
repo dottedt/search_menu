@@ -1,9 +1,8 @@
 require "search_menu/version"
-require "data_cleaner"
 
 class SearchMenu
 
-  attr_accessor :file_name, :price_goal, :menu_items
+  attr_accessor :file_name, :price_goal, :menu_items, :winning_combo
 
   def initialize(input = nil)
     @file_name = ""
@@ -23,11 +22,17 @@ class SearchMenu
   # def price_goal_to_number(price_goal)
   #   price_goal.flatten.collect { |i| i.to_f }
   # end
-  def menu_to_hash(menu_prices)
-    menu_prices.map { |menu_item, item_cost| {:menu_item=> menu_item, :item_cost => item_cost} }
+
+  def hash_input(data)
+      data = data.collect { |k, v|  [k, v]}.each{ |s| s.compact! }
+      scrub_data(data)
   end
 
-  def find_target_price
+  def menu_to_hash(menu_prices)
+    menu_prices.map { |menu_item, item_cost| {menu_item: menu_item, item_cost: item_cost} }
+  end
+
+  def find_target_price(*data)
     # look into why this is needed
     @winning_combo = []
     1.upto(@menu_items.length).each{ |i| @menu_items.combination(i).each { |j|
@@ -37,8 +42,8 @@ class SearchMenu
 
   def eat_or_starve
     decision = []
-    decision << [:file_name=>"#{@file_name}"]
-    @winning_combo.empty? ? decision << [{:sorry=>"Sorry, there are no combination of dishes that will be equal in cost to your target price"}] : decision << @winning_combo
+    decision << [file_name: "#{@file_name}"]
+    @winning_combo.empty? ? decision << [{sorry: "Sorry, there are no combination of dishes that will be equal in cost to your target price"}] : decision << @winning_combo
     decision.flatten!
     decision
   end

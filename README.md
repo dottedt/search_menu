@@ -48,7 +48,7 @@ a single require.
 
 ## Please Note
 
-Build with Ruby 2.2.0
+Built with Ruby 2.2.0
 
 SearchMenu expects the first value to be the price. Please see the examples below.
 

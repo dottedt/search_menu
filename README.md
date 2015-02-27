@@ -34,8 +34,8 @@ The second way is to modify the String or Array classes by including either
 core extension.
 
     require 'search_menu/core_ext/array'   # extends only Array
-    require 'search_menu/core_ext/string'  # extends only String
-    require 'search_menu/core_ext'         # extends both Array/String
+    require 'search_menu/core_ext/hash'  # extends only Hash
+    require 'search_menu/core_ext'         # extends both Array/Hash
     
     [["$10.00"], ["mixed fruit", "$2.15"], ["french fries", "$2.75"], ["side salad", "$3.35"], ["hot wings",
     "$3.55"], ["mozzarella sticks", "$4.20"], ["sampler plate", "$5.80"]].search_menu
@@ -47,6 +47,32 @@ Lastly, the `SearchMenu` class along with all core extensions can be loaded via
 a single require.
 
      require 'search_menu/all'
+
+## Please Note
+
+SearchMenu expects the first value to be the price. Please see the examples below.
+
+For text files:
+
+$10.00
+mixed fruit,$2.15
+french fries,$2.75
+side salad,$3.35
+hot wings,$3.55
+mozzarella sticks,$4.20
+sampler plate,$5.80
+pine cones,$4.20
+cat food,$5.80
+
+For an Array:
+
+[["$10.00"], ["mixed fruit", "$2.15"], ["french fries", "$2.75"], ["side salad", "$3.35"], ["hot wings",
+    "$3.55"], ["mozzarella sticks", "$4.20"], ["sampler plate", "$5.80"]]
+    
+For a Hash:
+
+{"$10.00"=>nil, "mixed fruit"=>"$2.15", "french fries"=>"$2.75", "side salad"=>"$3.35", "hot wings"=>"$3.55",
+    "mozzarella sticks"=>"$4.20", "sampler plate"=>"$5.80"}
 
 ## Development
 

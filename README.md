@@ -2,8 +2,6 @@
 
 Searches a menu and finds any items that will add up to a specific price.
 
-
-
 ## Installation
 
 Add this line to your application's Gemfile:
